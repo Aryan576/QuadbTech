@@ -1,0 +1,221 @@
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <link rel="shortcut icon" href="favicon.png">
+    <title>Nodejs Test</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700&amp;display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400i&amp;display=swap" rel="stylesheet">
+    <link href="/css/style.css" rel="stylesheet" media="screen">
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+
+
+</head>
+
+<body>
+
+    <div class="animsition">
+
+        <div class="row" style="margin-top: 30px;margin-left: 35px;margin-right: 35px;">
+            <div style="float: left;">
+
+                <img src="/img/HODLINFO.png" height="45" /><span style="color: #fff;">.com</span>
+                <p style="font-family: Arial Narrow;font-size: 20px;color: rgb(142, 140, 140);">Powered By <span
+                        style="color: #3dc6c1;">Finstreet</span></p>
+
+            </div>
+
+            <label class="switch" style="float: right;">
+                <input type="checkbox" checked>
+                <span class="slider round"></span>
+            </label>
+
+            <button type="button" class="btn btn-primary"
+                style="margin-right: 20px;font-weight: 550;font-size: 18px;float: right;background-color: #3dc6c1;border-radius: 10px;font-family: Arial Narrow;"><i
+                    class="fas fa-location-arrow"></i> Connect Telegram </button>
+
+
+            <div id="countdown" style="float: right;margin-right: 20px;">
+                <div id="countdown-number"></div>
+                <svg>
+                    <circle r="18" cx="20" cy="20"></circle>
+                </svg>
+            </div>
+
+            <div style="float:right;margin-right: 25%;">
+
+                <div class="dropdown">
+                    <button onclick="myFunctionINR()" class="dropbtn" style="font-weight:550;">INR&nbsp;<i
+                            class="fas fa-caret-down"></i></button>
+                    <div id="myDropdownINR" class="dropdown-content">
+                        <p class="dropdown-p">INR</p>
+
+                    </div>
+                </div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+                <div class="dropdown">
+                    <button onclick="myFunctionBTC()" class="dropbtn" style="font-weight:550;">BTC&nbsp;<i
+                            class="fas fa-caret-down"></i></button>
+                    <div id="myDropdownBTC" class="dropdown-content">
+                        <p class="dropdown-p">BTC</p>
+                        <p class="dropdown-p">ETH</p>
+                        <p class="dropdown-p">USDT</p>
+                        <p class="dropdown-p">XRP</p>
+                        <p class="dropdown-p">TRX</p>
+                        <p class="dropdown-p">DASH</p>
+                        <p class="dropdown-p">ZEC</p>
+                        <p class="dropdown-p">XEM</p>
+                        <p class="dropdown-p">IOST</p>
+                        <p class="dropdown-p">WIN</p>
+                        <p class="dropdown-p">BTT</p>
+                        <p class="dropdown-p">WRX</p>
+
+                    </div>
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <table id="tables" class="gfg" >
+            
+
+          
+            
+
+        </table>
+
+
+
+    </div>
+
+
+    <script data-cfasync="false" src="../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script src="js/smoothscroll.js"></script>
+    <script src="js/animsition.js"></script>
+    <script src="js/jquery.validate.min.js"></script>
+    <script src="js/jquery.magnific-popup.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/jquery.pagepiling.min.js"></script>
+
+    <script src="js/scripts.js"></script>
+
+    <script>
+        var countdownNumberEl = document.getElementById('countdown-number');
+        var countdown = 1;
+
+        countdownNumberEl.textContent = countdown;
+
+        setInterval(function () {
+            countdown = --countdown <= 0 ? 60 : countdown;
+
+            countdownNumberEl.textContent = countdown;
+        }, 1000);
+    </script>
+    <script>
+       
+        function myFunctionINR() {
+            document.getElementById("myDropdownINR").classList.toggle("show");
+        }
+
+        
+        window.onclick = function (event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+
+
+
+    </script>
+
+    <script>
+        function myFunctionBTC() {
+            document.getElementById("myDropdownBTC").classList.toggle("show");
+        }
+
+        
+        window.onclick = function (event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                var i;
+                for (i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
+
+    <script>
+        fetch("http://localhost:3000/getData").then(
+  res => {
+    res.json().then(
+      data => {
+        console.log(data);
+        if (data.length > 0) {
+          
+          
+          var temp = "";
+          
+          temp +=  " <tr>"
+             temp +=      "<th>"+ "#" +"</th>";
+                temp +=     "<th>"+"Name"+"</th>";
+                temp +=  "<th>"+"Last"+"</th>";
+                temp +=   "<th>"+"Buy / Sell Price"+"</th>";
+                temp +=   "<th>"+"Volume"+"</th>";
+                temp +=   "<th>"+"base_unit"+"</th></tr>";
+          data.forEach((itemData) => {
+          
+               
+            temp += "<tr class='data'>";
+            temp += "<td class='geeks'>" + itemData.cryptoid + "</td>";
+            temp += "<td>" + itemData.name + "</td>";
+            temp += "<td>"+"<i class='fas fa-rupee-sign' style='font-size: 22px;'></i>" + itemData.last + "</td>";
+            temp += "<td>"+"<i class='fas fa-rupee-sign' style='font-size: 22px;''></i>"+itemData.buy+ "/ <i class='fas fa-rupee-sign' style='font-size: 22px;''></i>"+itemData.sell   + "</td>";
+            temp += "<td>" + itemData.volume + "</td>";
+            temp += "<td>" + itemData.baseunit + "</td></tr>";
+          });
+          document.getElementById('tables').innerHTML = temp;
+        }
+      }
+    )
+  }
+)
+
+    </script>
+
+    
+
+</body>
+
+
+
+</html>

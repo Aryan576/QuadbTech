@@ -1,0 +1,232 @@
+body {
+    width: 100%;
+    
+}
+
+.animsition {
+    position: absolute;
+    z-index: 100;
+    left: 0;
+    width: 100%;
+    top: 0;
+    background: #191D28;
+    height: auto
+}
+
+
+/* ----------------------------------------------------------------------------------------- */
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+input:checked+.slider {
+    background-color: #2e3241;
+}
+
+input:focus+.slider {
+    box-shadow: 0 0 1px #2e3241;
+}
+
+input:checked+.slider:before {
+    -webkit-transform: translateX(26px);
+    -ms-transform: translateX(26px);
+    transform: translateX(26px);
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: lightgray;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: #3dc6c1;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider.round {
+    border-radius: 34px;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+
+
+
+#countdown {
+    position: relative;
+    margin: auto;
+    /* margin-top: 100px; */
+    height: 40px;
+    width: 40px;
+    text-align: center;
+}
+
+#countdown-number {
+    color: #3dc6c1;
+    display: inline-block;
+    line-height: 40px;
+}
+
+svg {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    transform: rotateY(-180deg) rotateZ(-90deg);
+}
+
+svg circle {
+    stroke-dasharray: 113px;
+    stroke-dashoffset: 0px;
+    stroke-linecap: square;
+    stroke-width: 4px;
+    stroke: #3dc6c1;
+    fill: none;
+    animation: countdown 30s linear infinite forwards;
+}
+
+@keyframes countdown {
+    from {
+        stroke-dashoffset: 0px;
+    }
+
+    to {
+        stroke-dashoffset: 113px;
+    }
+}
+
+
+.dropbtn {
+    background-color: #2e3241;
+    color: #fff;
+    font-family: "Arial Narrow";
+
+    font-size: 19px;
+    border: none;
+    cursor: pointer;
+    height: 40px;
+    width: 80px;
+    border-radius: 10px;
+    text-align: center;
+
+}
+
+.dropbtn:hover,
+.dropbtn:focus {
+    background-color: #2e3241;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    height: 20px;
+    width: 50px;
+}
+
+.dropdown-p {
+
+    color: #000;
+    font-family: "Arial Narrow";
+    font-weight: 500;
+
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-top: 5px;
+    min-width: 160px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+
+}
+
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown a:hover {
+    background-color: #ddd;
+}
+
+.show {
+    display: block;
+}
+
+
+#tables {
+    width: 96%;
+    margin-left: 35px;
+    text-align: center;
+    margin-top: 5%;
+}
+
+#tables th {
+    font-family: "Arial Narrow";
+    font-size: 25px;
+    color: rgb(142, 140, 140);
+    text-align: center;
+    
+}
+
+.geeks {
+    border-right:hidden;
+}
+.gfg {
+    border-collapse:separate;
+    border-spacing:0 15px;
+}
+
+.data td {
+    color: #fff;
+    text-align: center;
+    margin-top: 5px;
+    height: 50px;
+    font-weight: 540;
+    font-size: 25px;
+    font-family: "Arial Narrow";
+    border-spacing: 10px;
+    padding-right: 10px;
+    background-color: #2e3241;
+}
+.data td:first-child{
+    border-radius: 10px 0 0 10px;
+}
+
+.data td:last-child{
+    border-radius: 0 10px 10px 0;
+}
